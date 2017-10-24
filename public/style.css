@@ -1,0 +1,30 @@
+
+body {
+  background: rgb(28, 31, 38);
+}
+
+.dot {
+  position: relative;
+}
+.dot:before {
+  content: '';
+  display:block;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background: rgb(255, 101, 46);
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  margin-top: -2px;
+  overflow: visible;
+  z-index: 0;
+  -webkit-transition: width .4s;
+  transition: width .4s;
+  box-sizing: content-box;
+}
+.dot:hover:before {
+  right: -15px;
+  padding-right: 30px;
+  width: 100%;
+}

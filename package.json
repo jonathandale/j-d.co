@@ -1,0 +1,23 @@
+{
+  "name": "j-d.co",
+  "version": "1.0.0",
+  "description": "Site for Jon Dale",
+  "main": "index.js",
+  "author": "Jon Dale",
+  "license": "MIT",
+  "dependencies": {
+    "animejs": "^2.2.0",
+    "date-fns": "^1.29.0",
+    "serve": "^6.3.1"
+  },
+  "devDependencies": {
+    "rollup-plugin-commonjs": "^8.2.4",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "serve public"
+  }
+}
