@@ -28,3 +28,15 @@ body {
   padding-right: 30px;
   width: 100%;
 }
+
+.logo {
+  background-image: url('./assets/jd-icon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: -3px;
+}
