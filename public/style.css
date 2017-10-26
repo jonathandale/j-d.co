@@ -30,9 +30,16 @@ body {
   margin-right: 10px;
   margin-left: -3px;
 }
+.circle {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
 footer {
   display: none;
 }
+
 .js-title {
   opacity: 0;
   margin: 0;

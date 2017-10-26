@@ -1,15 +1,17 @@
 import debounce from 'lodash.debounce';
+import anime from 'animejs';
 
 let circlesPerTitle = 2;
 let titleStart = 2;
 
-function tempCircle(s, x, y, p){
+function tempCircle(s, x, y, p, i){
   var el = document.createElement('div');
-  el.innerHTML =  `<div class="js-circle br-100 bg-white-10 absolute"
+  el.innerHTML =  `<div class="js-circle br-100 absolute circle"
                         style="width:${(s - p)}px;
                                height:${(s - p)}px;
                                left:${x}px;
                                margin:0 0 ${p}px ${p}px;
+                               background-image: url('./assets/circle${i}.svg');
                                top:${y}px;"></div>`;
   return el;
 }
@@ -31,7 +33,7 @@ function renderCircles(size){
       // Don't draw circles over the heading.
       if(isNotTitleRow(i) ||
          (!isNotTitleRow(i) && ((j * size) < (sectionEl.offsetWidth - titleEl.offsetWidth)))) {
-        sectionEl.appendChild(tempCircle(size, sectionEl.offsetWidth - (j * size), i * size, margin));
+        sectionEl.appendChild(tempCircle(size, sectionEl.offsetWidth - (j * size), i * size, margin, anime.random(1, 4)));
       }
     }
   }
