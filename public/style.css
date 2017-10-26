@@ -3,11 +3,7 @@ body {
   background: rgb(28, 31, 38);
 }
 
-.dot {
-  position: relative;
-}
-.dot:before {
-  content: '';
+.dot{
   display:block;
   width: 6px;
   height: 6px;
@@ -18,15 +14,9 @@ body {
   left: -15px;
   margin-top: -2px;
   overflow: visible;
-  z-index: 0;
-  -webkit-transition: width .4s;
-  transition: width .4s;
+  -webkit-transition: width .25s ease-in-out;
+  transition: width .25s ease-in-out;
   box-sizing: content-box;
-}
-.dot:hover:before {
-  right: -15px;
-  padding-right: 30px;
-  width: 100%;
 }
 
 .logo {

@@ -1,37 +1,20 @@
 import anime from 'animejs';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function linkHover() {
-//
-// }
-// function animateLinks() {
-//   var linkEls = document.querySelectorAll('.dot');
-//   Array.prototype.forEach.call(linkEls, function(el, i){
-//
-//   });
-// }
-
-
-
+function animateLinks() {
+  var linkEls = document.querySelectorAll('.js-dot');
+  var dotWidth = linkEls[0].querySelectorAll('.dot')[0].offsetWidth;
+  Array.prototype.forEach.call(linkEls, function(el, i){
+    el.addEventListener('mouseenter', function(evt){
+      evt.target.querySelectorAll('.dot')[0].style.width = (evt.target.offsetWidth + 30) + 'px';
+    });
+    el.addEventListener('mouseleave', function(evt){
+      evt.target.querySelectorAll('.dot')[0].style.width = dotWidth + 'px';
+    });
+  });
+}
 
 function init(){
-  console.log('bundled app!');
-  console.log(anime.random(0, 40));
+  animateLinks();
 }
 
 export default init
