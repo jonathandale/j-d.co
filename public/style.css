@@ -30,3 +30,13 @@ body {
   margin-right: 10px;
   margin-left: -3px;
 }
+footer {
+  display: none;
+}
+.js-title {
+  opacity: 0;
+  margin: 0;
+}
+.js-links {
+  display: none;
+}

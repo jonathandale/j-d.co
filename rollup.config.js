@@ -1,6 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel';
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -17,6 +19,9 @@ export default {
       namedExports: {
         'node_modules/animejs.js': ['anime']
       }
+    }),
+		babel({
+      exclude: 'node_modules/**'
     }),
 		production && uglify()
 	]
