@@ -23,7 +23,7 @@ function renderCircles(size){
   let margin = 15;
   let sectionEl = document.querySelector('.js-container');
   let titleEl = document.querySelector('.js-title');
-  let titleOffset = 3 * (titleEl.offsetWidth / 6);
+  let titleOffset = 3 * (titleEl.offsetWidth / 7);
   let perRow = Math.floor((sectionEl.offsetWidth - titleOffset) / size);
 
   for(let i=0; i<rows; i++){

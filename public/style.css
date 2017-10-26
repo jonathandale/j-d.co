@@ -40,3 +40,9 @@ footer {
 .js-links {
   display: none;
 }
+
+@media screen and (max-width: 960px) {
+  .js-br {
+    display: none;
+  }
+}
