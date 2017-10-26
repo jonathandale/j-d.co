@@ -1,20 +1,20 @@
 import anime from 'animejs';
 
-function animateLinks() {
+function animateLinkHover() {
   var linkEls = document.querySelectorAll('.js-dot');
-  var dotWidth = linkEls[0].querySelectorAll('.dot')[0].offsetWidth;
+  var dotWidth = linkEls[0].querySelector('.dot').offsetWidth;
   Array.prototype.forEach.call(linkEls, function(el, i){
     el.addEventListener('mouseenter', function(evt){
-      evt.target.querySelectorAll('.dot')[0].style.width = (evt.target.offsetWidth + 30) + 'px';
+      evt.target.querySelector('.dot').style.width = (evt.target.offsetWidth + 30) + 'px';
     });
     el.addEventListener('mouseleave', function(evt){
-      evt.target.querySelectorAll('.dot')[0].style.width = dotWidth + 'px';
+      evt.target.querySelector('.dot').style.width = dotWidth + 'px';
     });
   });
 }
 
-function init(){
-  animateLinks();
+function init() {
+  animateLinkHover();
 }
 
 export default init
