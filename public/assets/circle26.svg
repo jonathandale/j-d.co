@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <title>circle3</title>
+    <title>circle26</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-945.000000, -169.000000)">
-            <g id="circle3" transform="translate(945.000000, 169.000000)">
-                <circle id="Combined-Shape" stroke="#FFFFFF" stroke-width="7" cx="30" cy="30" r="26.5"></circle>
-                <circle id="Combined-Shape-Copy-4" fill="#FFFFFF" cx="30" cy="30" r="20"></circle>
+        <g id="Artboard" transform="translate(-866.000000, -254.000000)" stroke-width="3" stroke="#FFFFFF">
+            <g id="circle26" transform="translate(866.000000, 254.000000)">
+                <circle id="Oval-2-Copy-4" cx="30" cy="30" r="28.5"></circle>
             </g>
         </g>
     </g>

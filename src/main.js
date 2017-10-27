@@ -3,6 +3,7 @@ import anime from 'animejs';
 
 let circlesPerTitle = 2;
 let titleStart = 2;
+let circleMargin = 20;
 
 function tempCircle(s, x, y, p, i){
   var el = document.createElement('div');
@@ -11,6 +12,7 @@ function tempCircle(s, x, y, p, i){
                                height:${(s - p)}px;
                                left:${x}px;
                                margin:0 0 ${p}px ${p}px;
+                               opacity: 0;
                                background-image: url('./assets/circle${i}.svg');
                                top:${y}px;"></div>`;
   return el;
@@ -22,7 +24,6 @@ function isNotTitleRow(i){
 
 function renderCircles(size){
   let rows = 6;
-  let margin = 15;
   let sectionEl = document.querySelector('.js-container');
   let titleEl = document.querySelector('.js-title');
   let titleOffset = 3 * (titleEl.offsetWidth / 7);
@@ -33,10 +34,20 @@ function renderCircles(size){
       // Don't draw circles over the heading.
       if(isNotTitleRow(i) ||
          (!isNotTitleRow(i) && ((j * size) < (sectionEl.offsetWidth - titleEl.offsetWidth)))) {
-        sectionEl.appendChild(tempCircle(size, sectionEl.offsetWidth - (j * size), i * size, margin, anime.random(1, 4)));
+        sectionEl.appendChild(tempCircle(size, sectionEl.offsetWidth - (j * size), i * size, circleMargin, anime.random(1, 40)));
       }
     }
   }
+  anime({
+    targets: '.js-circle',
+    opacity: 1,
+    loop: false,
+    duration: 1000,
+    easing: 'easeInOutSine',
+    delay: function(el, i, l) {
+      return anime.random(500, 2000);
+    }
+  });
 }
 
 function setupLinks(){
@@ -52,11 +63,21 @@ function setupLinks(){
     });
   });
 
-  linkWrapEl.style.display = 'block';
+  // linkWrapEl.style.opacity = 1;
+  anime({
+    targets: linkWrapEl.querySelectorAll('li'),
+    opacity: 1,
+    loop: false,
+    duration: 1000,
+    easing: 'easeInOutSine',
+    delay: function(el, i, l) {
+      return 3000 + (i * 50);
+    }
+  });
 }
 
 function getCircleSize(){
-  return Math.floor((document.querySelector('.js-title').offsetHeight / circlesPerTitle) + 10);
+  return Math.floor((document.querySelector('.js-title').offsetHeight / circlesPerTitle) + 0);
 }
 
 function showFooter(){
@@ -65,7 +86,7 @@ function showFooter(){
 
 function setAndShowTitle(circleSize){
   let titleEl = document.querySelector('.js-title');
-  titleEl.style.marginTop = `${(circleSize * titleStart)}px`;
+  titleEl.style.marginTop = `${(circleSize * titleStart) - (circleMargin / 2)}px`;
   titleEl.style.opacity = 1;
 }
 

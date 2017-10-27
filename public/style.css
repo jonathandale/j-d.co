@@ -27,8 +27,7 @@ body {
   height: 28px;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
-  margin-left: -3px;
+  margin:0 10px 0 -3px;
 }
 .circle {
   background-repeat: no-repeat;
@@ -44,8 +43,8 @@ footer {
   opacity: 0;
   margin: 0;
 }
-.js-links {
-  display: none;
+.js-links li {
+  opacity: 0;
 }
 
 @media screen and (max-width: 960px) {
