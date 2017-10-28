@@ -1,9 +1,10 @@
-import debounce from 'lodash.debounce';
+import _ from 'lodash';
 import anime from 'animejs';
 
 let baseCirclesPerTitle = 2;
 let titleStart = 2;
 let circleMargin = 20;
+let circleMax = 40;
 
 function makeCircle(s, x, y, p, i){
   var el = document.createElement('div');
@@ -22,6 +23,13 @@ function isNotTitleRow(i){
   return (i < titleStart || i >= (titleStart + getCirclesPerTitle()));
 }
 
+function generateIds(total){
+  let times = Math.ceil(total / circleMax);
+  let rem = total % circleMax;
+  return _.shuffle(_.flatten(_.concat(_.range(0, rem),
+                                      _.times(times, _.constant(_.range(1, circleMax))))));
+}
+
 function renderCircles(){
   let size = getCircleSize();
   let rows = 4 + getCirclesPerTitle();
@@ -29,13 +37,20 @@ function renderCircles(){
   let titleEl = document.querySelector('.js-title');
   let titleOffset = 2 * (titleEl.offsetWidth / 5);
   let perRow = Math.floor((sectionEl.offsetWidth - titleOffset) / size);
+  let ids = generateIds(rows * perRow);
 
   for(let i=0; i<rows; i++){
     for(let j=1; j<=perRow; j++){
       // Don't draw circles over the heading.
       if(isNotTitleRow(i) ||
          (!isNotTitleRow(i) && ((j * size) < (sectionEl.offsetWidth - titleEl.offsetWidth)))) {
-        sectionEl.appendChild(makeCircle(size, sectionEl.offsetWidth - (j * size), i * size, circleMargin, anime.random(1, 40)));
+        sectionEl.appendChild(
+          makeCircle(size,
+                     sectionEl.offsetWidth - (j * size),
+                     i * size,
+                     circleMargin,
+                     ids[(i * perRow + j)-1])
+        );
       }
     }
   }
@@ -111,7 +126,7 @@ function setAndShowTitle(){
 
 function handleResize(){
   let pageWidth = window.outerWidth;
-  let resize = debounce(function(){
+  let resize = _.debounce(function(){
     if(window.outerWidth !== pageWidth) {
       pageWidth = window.outerWidth;
       Array.prototype.forEach.call(document.querySelectorAll('.js-circle'), function(el){
