@@ -140,12 +140,20 @@ function handleResize(){
   window.addEventListener('resize', resize);
 }
 
+function addSha(){
+  let footerEl = document.querySelector('footer');
+  let el = document.createElement('div');
+  el.innerHTML = `<a class="f7 white-20 link" href="https://github.com/jonathandale/j-d.co/commit/<@GIT_SHA@>"><@GIT_SHA@></a>`;
+  footerEl.appendChild(el);
+}
+
 function init(){
   renderCircles();
   setAndShowTitle()
   setupLinks();
   showFooter();
   handleResize();
+  addSha();
 }
 
 export default init
