@@ -27,19 +27,16 @@ body {
   height: 22px;
   display: inline-block;
   vertical-align: middle;
-  margin:0 10px 0 -3px;
+  margin:0 10px 5px -3px;
 }
 .circle {
   background-repeat: no-repeat;
   background-size: cover;
   display: inline-block;
 }
-.js-dot:focus {
-  outline: none;
-}
 .js-title {
   opacity: 0;
-  margin: 15% 0 0;
+  margin: 200px 0 0;
 }
 .js-links li {
   opacity: 0;
@@ -55,4 +52,8 @@ body {
   .js-br {
     display: none;
   }
+}
+
+.link:focus {
+  outline: none;
 }

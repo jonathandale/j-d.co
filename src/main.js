@@ -31,7 +31,7 @@ function generateIds(total){
                                       _.times(times, _.constant(_.range(1, circleMax))))));
 }
 
-function renderCircles(){
+function renderCircles(animDelay){
   let size = getCircleSize();
   let rows = 4 + getCirclesPerTitle();
   let sectionEl = document.querySelector('.js-container');
@@ -62,7 +62,7 @@ function renderCircles(){
     duration: 1000,
     easing: 'easeInOutSine',
     delay: function(el, i, l) {
-      return anime.random(500, 2000);
+      return anime.random.apply(null, animDelay);
     }
   });
 }
@@ -80,7 +80,6 @@ function setupLinks(){
     });
   });
 
-  // linkWrapEl.style.opacity = 1;
   anime({
     targets: linkWrapEl.querySelectorAll('li'),
     opacity: 1,
@@ -88,7 +87,7 @@ function setupLinks(){
     duration: 1000,
     easing: 'easeInOutSine',
     delay: function(el, i, l) {
-      return 3000 + (i * 50);
+      return 2000 + (i * 50);
     }
   });
 }
@@ -172,11 +171,24 @@ function handleResize(){
   let resize = _.debounce(function(){
     if(window.outerWidth !== pageWidth) {
       pageWidth = window.outerWidth;
-      Array.prototype.forEach.call(document.querySelectorAll('.js-circle'), function(el){
-        el.parentNode.removeChild(el);
+      let circles = document.querySelectorAll('.js-circle');
+      anime({
+        targets: circles,
+        opacity: 0,
+        loop: false,
+        duration: 400,
+        easing: 'easeInOutSine',
+        delay: function(el, i, l) {
+          return anime.random(0, 200);
+        },
+        complete: function(){
+          Array.prototype.forEach.call(circles, function(el){
+            el.parentNode.removeChild(el);
+          });
+          renderCircles([0, 1500]);
+          setAndShowTitle();
+        }
       });
-      renderCircles(getCircleSize());
-      setAndShowTitle();
     }
   }, 400);
 
@@ -186,7 +198,7 @@ function handleResize(){
 function addSha(){
   let footerEl = document.querySelector('footer');
   let el = document.createElement('div');
-  el.innerHTML = `<a class="f7 white-20 link" href="https://github.com/jonathandale/j-d.co/commit/<@GIT_SHA@>"><@GIT_SHA@></a>`;
+  el.innerHTML = `<a class="f7 white-20 link hover-white-30" href="https://github.com/jonathandale/j-d.co/commit/<@GIT_SHA@>"><@GIT_SHA@></a>`;
   footerEl.appendChild(el);
 }
 
@@ -199,7 +211,7 @@ function handleKeyEvents(){
 }
 
 function init(){
-  renderCircles();
+  renderCircles([500, 1500]);
   setAndShowTitle()
   setupLinks();
   handleAboutClick();
