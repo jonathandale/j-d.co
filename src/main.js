@@ -5,6 +5,7 @@ let baseCirclesPerTitle = 2;
 let titleStart = 2;
 let circleMargin = 20;
 let circleMax = 40;
+let aboutOpen = false;
 
 function makeCircle(s, x, y, p, i){
   var el = document.createElement('div');
@@ -92,6 +93,52 @@ function setupLinks(){
   });
 }
 
+function animateAboutIn(aboutEl){
+  aboutEl.style.opacity = 0;
+  aboutEl.style.display = 'block';
+  aboutEl.style.right = '-2rem';
+  anime({
+    targets: aboutEl,
+    opacity: 1,
+    right: 0,
+    loop: false,
+    duration: 200,
+    easing: 'easeInOutSine'
+  });
+}
+
+function animateAboutOut(aboutEl){
+  anime({
+    targets: aboutEl,
+    opacity: 0,
+    right: '-2rem',
+    loop: false,
+    duration: 200,
+    easing: 'easeInOutSine',
+    complete: function(){
+      aboutEl.style.display = 'none';
+      aboutEl.style.opacity = 1;
+      aboutEl.style.right = 0;
+    }
+  });
+}
+
+function handleAboutClick(){
+  let aboutEl = document.querySelector('.js-about');
+  let aboutLinkEl = document.querySelector('.js-about-link');
+  aboutLinkEl.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    aboutOpen = true;
+    animateAboutIn(aboutEl);
+  });
+  let closeLinkEl = document.querySelector('.js-close-link');
+  closeLinkEl.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    aboutOpen = false;
+    animateAboutOut(aboutEl);
+  });
+}
+
 function getCirclesPerTitle(){
   let num;
   let height = document.querySelector('.js-title').offsetHeight;
@@ -107,10 +154,6 @@ function getCirclesPerTitle(){
 
 function getCircleSize(){
   return Math.floor(document.querySelector('.js-title').offsetHeight / getCirclesPerTitle());
-}
-
-function showFooter(){
-  document.querySelector('footer').style.display = 'block';
 }
 
 function setAndShowTitle(){
@@ -147,13 +190,22 @@ function addSha(){
   footerEl.appendChild(el);
 }
 
+function handleKeyEvents(){
+  window.addEventListener('keydown', function(evt){
+    if(evt.which === 27 && aboutOpen){
+      animateAboutOut(document.querySelector('.js-about'));
+    }
+  });
+}
+
 function init(){
   renderCircles();
   setAndShowTitle()
   setupLinks();
-  showFooter();
+  handleAboutClick();
   handleResize();
   addSha();
+  handleKeyEvents();
 }
 
 export default init

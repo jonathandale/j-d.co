@@ -23,8 +23,8 @@ body {
   background-image: url('./assets/jd-icon.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
   vertical-align: middle;
   margin:0 10px 0 -3px;
@@ -34,17 +34,21 @@ body {
   background-size: cover;
   display: inline-block;
 }
-
-footer {
-  display: none;
+.js-dot:focus {
+  outline: none;
 }
-
 .js-title {
   opacity: 0;
   margin: 15% 0 0;
 }
 .js-links li {
   opacity: 0;
+}
+
+@media screen and (min-width: 30em) {
+  .js-about p {
+    color: #111; /* near black */
+  }
 }
 
 @media screen and (max-width: 960px) {
