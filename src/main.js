@@ -7,7 +7,7 @@ let circleMargin = 20;
 let circleMax = 40;
 let aboutOpen = false;
 
-function makeCircle(s, x, y, p, i){
+function makeCircle(s, x, y, p, i, path){
   var el = document.createElement('div');
   el.innerHTML =  `<div class="js-circle br-100 absolute circle"
                         style="width:${(s - p)}px;
@@ -15,9 +15,9 @@ function makeCircle(s, x, y, p, i){
                                left:${x}px;
                                margin:0 0 ${p}px ${p}px;
                                opacity: 0;
-                               background-image: url('./assets/circle${i}.svg');
+                               background-image: url('${path}/assets/circle${i}.svg');
                                top:${y}px;"></div>`;
-  return el;
+  return el.querySelector('div');
 }
 
 function isNotTitleRow(i){
@@ -50,7 +50,8 @@ function renderCircles(animDelay){
                      sectionEl.offsetWidth - (j * size),
                      i * size,
                      circleMargin,
-                     ids[(i * perRow + j)-1])
+                     ids[(i * perRow + j)-1],
+                     './')
         );
       }
     }
@@ -67,16 +68,48 @@ function renderCircles(animDelay){
   });
 }
 
+function renderProjectCircles(){
+  let circlesEl = document.querySelector('.js-container');
+  let num = 3;
+  let size = 80;
+  let ids = generateIds(num);
+
+  _.forEach(_.range(num), function(i){
+      let c = makeCircle(size, 0, 0, circleMargin, ids[i], '../../');
+      c.style.left = 'auto';
+      c.style.right = (i * size) + 'px';
+      circlesEl.appendChild(c);
+  });
+
+  anime({
+    targets: '.js-circle',
+    opacity: 1,
+    loop: false,
+    duration: 1000,
+    easing: 'easeInOutSine',
+    delay: function(el, i, l) {
+      return anime.random(0, 500);
+    }
+  });
+}
+
 function setupLinks(){
   let linkWrapEl = document.querySelector('.js-links');
   let linkEls = document.querySelectorAll('.js-dot');
   let dotWidth = linkEls[0].querySelector('.dot').offsetWidth;
   Array.prototype.forEach.call(linkEls, function(el, i){
     el.addEventListener('mouseenter', function(evt){
-      evt.target.querySelector('.dot').style.width = (evt.target.offsetWidth + 30) + 'px';
+      evt.target.querySelector('.dot').style.width = (evt.target.offsetWidth + 15) + 'px';
     });
     el.addEventListener('mouseleave', function(evt){
       evt.target.querySelector('.dot').style.width = dotWidth + 'px';
+    });
+  });
+  Array.prototype.forEach.call(linkWrapEl.querySelectorAll('a'), function(el, i){
+    el.addEventListener('click', function(evt){;
+      if(el.classList.contains('js-disabled')){
+        evt.preventDefault();
+      }
     });
   });
 
@@ -198,7 +231,10 @@ function handleResize(){
 function addSha(){
   let footerEl = document.querySelector('footer');
   let el = document.createElement('div');
-  el.innerHTML = `<a class="f7 white-20 link hover-white-30" href="https://github.com/jonathandale/j-d.co/commit/<@GIT_SHA@>"><@GIT_SHA@></a>`;
+  let sha = '<@GIT_SHA@>';
+  el.innerHTML = `<a class="f7 white-20 link hover-white-40" href="https://github.com/jonathandale/j-d.co/commit/<@GIT_SHA@>">
+                    <span class="dib">${sha.substr(0, 7)}</span><span class="dn dib-ns">${sha.substr(7)}</span>
+                  </a>`;
   footerEl.appendChild(el);
 }
 
@@ -220,6 +256,13 @@ function init(){
   handleKeyEvents();
 }
 
-export default init
+function project(){
+  setupLinks();
+  renderProjectCircles();
+  addSha();
+}
 
-init();
+export default {
+  init,
+  project
+};

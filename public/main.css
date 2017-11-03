@@ -2,7 +2,9 @@
 body {
   background: rgb(28, 31, 38);
 }
-
+.js-dot {
+  padding-left: 15px;
+}
 .dot{
   display:block;
   width: 6px;
@@ -11,7 +13,7 @@ body {
   background: rgb(255, 101, 46);
   position: absolute;
   top: 50%;
-  left: -15px;
+  left: 0px;
   margin-top: -2px;
   overflow: visible;
   -webkit-transition: width .25s ease-in-out;
@@ -56,4 +58,17 @@ body {
 
 .link:focus {
   outline: none;
+}
+.orange-underline {
+  text-decoration-color: rgb(255, 101, 46);
+  text-decoration-skip: ink;
+}
+.orange-underline:hover {
+  text-decoration: none;
+  color:rgb(255, 101, 46);
+}
+.github-icon {
+  background-image: url('./assets/github.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }

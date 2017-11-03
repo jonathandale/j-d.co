@@ -5,7 +5,7 @@
 	<meta name='viewport' content='width=device-width'>
 	<title>Jon Dale &mdash; Creative Developer</title>
   <link rel="stylesheet" href="./tachyons.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./main.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -21,9 +21,9 @@
 		<div class="mt7 mt5-m mt5-l">
 			<p class="f3 fw5 dn-m dn-l lh-title">Projects</p>
 			<ul class="js-links list pl0">
-				<li class="mb3">
+				<li class="mb3 disabled">
 					<span class="white-30 f5 db mb1">// For fun</span>
-					<a href="" class="js-dot f4 link near-white link hover-white relative">
+					<a href="./projects/hacker-news-cli/" class="js-dot f4 link near-white link hover-white relative">
 						<span class="dot z-0"></span>
 						<span class="z-1 relative">Hacker News CLI</span>
 					</a>
@@ -82,7 +82,9 @@
   <footer class="cf mt5">
     <p class="pa0 ma0 mb1 f5 white-20">&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Jon Dale</p>
   </footer>
-
-	<script src='app.js'></script>
+	<script src="app.js"></script>
+	<script type="text/javascript">
+		app.init();
+	</script>
 </body>
 </html>

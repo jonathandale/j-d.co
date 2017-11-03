@@ -1,0 +1,19 @@
+.js-links li {
+  opacity: 1;
+}
+
+.js-disabled {
+  padding-left: 15px;
+}
+.js-links li a.js-disabled {
+  color:grey;
+  cursor: not-allowed;
+}
+.js-links li a.js-disabled .dot {
+  background-color: grey;
+}
+
+.adjust-margin {
+  margin: 0 -6% 0;
+  max-width: 112%;
+}
