@@ -44,22 +44,11 @@ body {
   opacity: 0;
 }
 
-@media screen and (min-width: 30em) {
-  .js-about p {
-    color: #111; /* near black */
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .js-br {
-    display: none;
-  }
-}
-
 .link:focus {
   outline: none;
 }
 .orange-underline {
+  color: #fff;
   text-decoration-color: rgb(255, 101, 46);
   text-decoration-skip: ink;
 }
@@ -71,4 +60,19 @@ body {
   background-image: url('./assets/github.svg');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 30em) {
+  .js-about p {
+    color: #111; /* near black */
+  }
+  .orange-underline {
+    color: #111;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .js-br {
+    display: none;
+  }
 }
