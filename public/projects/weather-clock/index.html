@@ -23,8 +23,8 @@
 	<div class="mw9 mb4">
 	  <div class="cf">
 	    <div class="fl w-100 w-70-ns">
-	      <p class="white ma0 pa0 f2">Hacker News CLI</p>
-				<p class="white-50 ma0 mt2 pa0 f4">Latest Hacker News stories from the comfort of the command line</p>
+	      <p class="white ma0 pa0 f2">Weather Clock</p>
+				<p class="white-50 ma0 mt2 pa0 f4">Mobile app to view weather around a clockface</p>
 	    </div>
 	    <div class="fl w-100 w-30-ns tr">
 	      <div class="js-container relative dn db-l"></div>
@@ -32,9 +32,15 @@
 	  </div>
 	</div>
 	<div class="pv3 mb3">
-		<a href="https://github.com/jonathandale/hacker-news-cli" class="js-dot f4 near-white link hover-white relative dib mr4">
-			<span class="dot"></span><span class="z-1 relative">Github repo</span>
+		<div class="mb2">
+			<a href="https://github.com/jonathandale/weather-clock" class="js-dot f4 near-white link hover-white relative dib mr4">
+				<span class="dot"></span><span class="z-1 relative">Github repo</span>
+			</a>
+		</div>
+		<a href="https://weatherclock.herokuapp.com/" class="js-dot f4 near-white link hover-white relative dib mr3">
+			<span class="dot"></span><span class="z-1 relative">Web app</span>
 		</a>
+		<span class="f5 white-60 dib">(View on mobile)</span>
 	</div>
 	<div class="mw9">
 	  <div class="cf">
@@ -42,66 +48,59 @@
 			<div class="fl w-100 w-70-l">
 				<div class="fl w-100 w-70-ns">
 					<p class="f3 mb1">Rationale</p>
-					<p class="lh-copy mb2">I was looking for an excuse to try out Lumo's <a class="white hover-jd-orange orange-underline" href="https://anmonteiro.com/2017/02/compiling-clojurescript-projects-without-the-jvm/">build api</a>, and have a crack at building a CLI tool. As I periodically peruse Hacker News stories, I thought it'd be fun to provide a tool to quickly check the latest from the command line. Even though there are more <a class="white orange-underline" href="https://github.com/donnemartin/haxor-news">fully featured CLI's</a> out there, it was fun to build.</p>
+					<p class="lh-copy mb2">Sometimes you just want to know when it's the best time to go for a run, or walk to get a coffee. I thought it'd be interesting to display the chance of rain (or sleet, snow etc) around a clockface so that at a glance you could choose the best moment to get outside.</p>
+					<p class="lh-copy mb2">At the time I wanted an excuse to teach myself Backbone and Grunt, so designed and built a web app using Backbone Marionette.</p>
 		    </div>
 				<div class="fl w-100 w-30-ns pa0 ma0 mb3 pl4-ns">
 					<p class="f3 mb1">Tools</p>
 					<ul class="list pl0">
-						<li class="mv2"><a href="https://clojurescript.org/" class="white orange-underline">ClojureScript</a></li>
-						<li class="mv2"><a href="https://github.com/anmonteiro/lumo" class="white orange-underline">Lumo</a></li>
-						<li class="mv2"><a href="https://github.com/HackerNews/API" class="white orange-underline">Hacker News API</a></li>
+						<li class="mv2">Javascript (backbone)</li>
+						<li class="mv2">Sass / Grunt</li>
+						<li class="mv2">Photoshop</li>
 					</ul>
 		    </div>
 			</div>
 			<!-- 1 -->
-			<div class="fl w-100 w-70-l mb5">
-				<img class="mw-100 db adjust-margin" src="../../assets/projects/hacker-news-cli-1.png" alt="Default view">
-				<p class="lh-copy mt0 pa0 white-60 adjust-caption">Default view showing "Top stories", along with author, time, and comment count.</p>
+			<div class="fl w-100 w-70-l mb3 cf">
+				<div class="fl w-100 w-third-ns">
+					<img class="mw-100 db adjust-margin" src="../../assets/projects/weatherclock-1.png" alt="">
+				</div>
+				<div class="fl w-100 w-third-ns">
+					<img class="mw-100 db adjust-margin" src="../../assets/projects/weatherclock-2.png" alt="">
+				</div>
+				<div class="fl w-100 w-third-ns">
+					<img class="mw-100 db adjust-margin" src="../../assets/projects/weatherclock-3.png" alt="">
+				</div>
 	    </div>
-			<!-- 2 -->
+			<!-- Captions -->
 			<div class="fl w-100 w-70-l mb5">
-				<img class="mw-100 db adjust-margin" src="../../assets/projects/hacker-news-cli-2.png" alt="Compact view">
-				<p class="lh-copy mt0 pa0 white-60 adjust-caption">
-					The command <code class="bg-near-black o-90 white ph2 pv1 mh2 f6">hcknws -d compact</code> shows just the title and comment count on one line for a more condensed view.
-				</p>
-	    </div>
-			<!-- 3 -->
-			<div class="fl w-100 w-70-l mb5">
-				<img class="mw-100 db adjust-margin" src="../../assets/projects/hacker-news-cli-3.png" alt="Help menu">
-				<p class="lh-copy mt0 pa0 white-60 adjust-caption">
-					The command <code class="bg-near-black o-90 white ph2 pv1 mh2 f6">hcknws -h</code> displays usage, options, and examples.
-				</p>
-	    </div>
-			<!-- 4 -->
-			<div class="fl w-100 w-70-l mb5">
-				<img class="mw-100 db adjust-margin" src="../../assets/projects/hacker-news-cli-4.png" alt="Alternative theme for light backgrounds">
-				<p class="lh-copy mt0 pa0 white-60 adjust-caption">
-					The command <code class="bg-near-black o-90 white ph2 pv1 mh2 f6">hcknws -t light</code> changes the colours for light backgrounds.
+				<p class="lh-copy mt0 pa0 white-60">
+					First screen shows forecast and temperature on a clockface. Second screen shows chance of precipitation in "segments" by the hour, or minute view. Lastly, a 7 day outlook for the upcoming week.
 				</p>
 	    </div>
 	  </div>
 	</div>
-	<a href="https://github.com/jonathandale/hacker-news-cli" class="f5 white-60 link hover-white dib mr4">View code on Github</a>
+	<a href="https://github.com/jonathandale/weather-clock" class="f5 white-60 link hover-white dib mr4">View code on Github</a>
   <section class="js-container relative">
 		<div class="mt5">
 			<ul class="js-links list pl0">
 				<li class="mb3">
 					<span class="white-30 f5 db mb1">// For fun</span>
-					<a href="" class="js-disabled f4 near-white link hover-white relative">
+					<a href="../hacker-news-cli/" class="js-dot f4 near-white link hover-white relative">
 						<span class="dot z-0"></span>
 						<span class="z-1 relative">Hacker News CLI</span>
 					</a>
 				</li>
 				<li class="mb3">
 					<span class="white-30 f5 db mb1">// Professional</span>
-					<a href="" class="js-dot f4 near-white link hover-white relative">
+					<a href="../crowd-reviewed/" class="js-dot f4 near-white link hover-white relative">
 						<span class="dot"></span>
 						<span class="z-1 relative">Crowd Reviewed</span>
 					</a>
 				</li>
 				<li class="mb3">
 					<span class="white-30 f5 db mb1">// For fun</span>
-					<a href="../weather-clock/" class="js-dot f4 near-white link hover-white relative">
+					<a href="" class="js-disabled f4 near-white link hover-white relative">
 						<span class="dot"></span>
 						<span class="z-1 relative">Weather Clock</span>
 					</a>
