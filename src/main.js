@@ -238,6 +238,17 @@ function addSha(){
   footerEl.appendChild(el);
 }
 
+function addCopyright(){
+  let el = document.querySelector('.copyright');
+  el.innerHTML = '&copy;' + new Date().getFullYear() + ' Jon Dale';
+}
+
+function printGreeting(){
+  let day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
+  console.log('%c👋','font-size: 30px');
+  console.log('Hi there, hope your ' + day + '\'s going well.');
+}
+
 function handleKeyEvents(){
   window.addEventListener('keydown', function(evt){
     if(evt.which === 27 && aboutOpen){
@@ -253,13 +264,17 @@ function init(){
   handleAboutClick();
   handleResize();
   addSha();
+  addCopyright();
   handleKeyEvents();
+  printGreeting();
 }
 
 function project(){
   setupLinks();
   renderProjectCircles();
   addSha();
+  addCopyright();
+  printGreeting();
 }
 
 export default {
