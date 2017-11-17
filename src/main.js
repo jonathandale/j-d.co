@@ -148,7 +148,7 @@ function animateAboutOut(aboutEl){
     duration: 200,
     easing: 'easeInOutSine',
     complete: function(){
-      aboutEl.style.display = 'none';
+      aboutEl.style.display = null;
       aboutEl.style.opacity = 1;
       aboutEl.style.right = 0;
     }
