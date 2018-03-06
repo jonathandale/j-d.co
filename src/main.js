@@ -277,7 +277,15 @@ function project(){
   printGreeting();
 }
 
+function resume(){
+  renderProjectCircles();
+  addSha();
+  addCopyright();
+  printGreeting();
+}
+
 export default {
   init,
-  project
+  project,
+  resume
 };

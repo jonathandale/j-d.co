@@ -79,3 +79,18 @@ body {
     display: none;
   }
 }
+
+.timeline-dot {
+  background-image: url('./assets/jd-icon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* overrides */
+.bg-orange {
+  background: rgb(255, 101, 46);
+}
