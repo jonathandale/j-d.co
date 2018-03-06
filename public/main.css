@@ -35,6 +35,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   display: inline-block;
+  transition-timing-function: ease-in-out;
+  transition-duration: .2s;
 }
 .js-title {
   opacity: 0;

@@ -6,12 +6,28 @@ let titleStart = 2;
 let circleMargin = 20;
 let circleMax = 40;
 let aboutOpen = false;
+let animatable = null;
+
+// Should explore request animation frame instead of throttle
+let mouseMove = _.throttle(function(e){
+  animatable.forEach(function(circle){
+    //https://stackoverflow.com/questions/15653801/rotating-object-to-face-mouse-pointer-on-mousemove
+    let center = [circle.offsetLeft+circle.offsetWidth / 2, circle.offsetTop + circle.offsetHeight / 2];
+    let angle = Math.atan2(e.pageX - center[0], - (e.pageY - center[1])) * (180 / Math.PI);
+    circle.style.transform = 'rotate(' + angle + 'deg)';
+  });
+}, 100);
+
+// If odd width, circles bobble when rotating
+function forceEven(n){
+  return (n % 2 == 0) ? n : n-1;
+}
 
 function makeCircle(s, x, y, p, i, path){
   var el = document.createElement('div');
   el.innerHTML =  `<div class="js-circle br-100 absolute circle"
-                        style="width:${(s - p)}px;
-                               height:${(s - p)}px;
+                        style="width:${forceEven(s - p)}px;
+                               height:${forceEven(s - p)}px;
                                left:${x}px;
                                margin:0 0 ${p}px ${p}px;
                                opacity: 0;
@@ -257,8 +273,14 @@ function handleKeyEvents(){
   });
 }
 
+function rotateCircles(){
+  animatable = document.querySelectorAll('.js-circle');
+  document.addEventListener("mousemove", mouseMove);
+}
+
 function init(){
   renderCircles([500, 1500]);
+  rotateCircles();
   setAndShowTitle()
   setupLinks();
   handleAboutClick();
@@ -272,6 +294,7 @@ function init(){
 function project(){
   setupLinks();
   renderProjectCircles();
+  rotateCircles();
   addSha();
   addCopyright();
   printGreeting();
@@ -279,6 +302,7 @@ function project(){
 
 function resume(){
   renderProjectCircles();
+  rotateCircles();
   addSha();
   addCopyright();
   printGreeting();
