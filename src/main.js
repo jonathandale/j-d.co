@@ -235,6 +235,7 @@ function handleResize(){
             el.parentNode.removeChild(el);
           });
           renderCircles([0, 1500]);
+          animatable = document.querySelectorAll('.js-circle');
           setAndShowTitle();
         }
       });
