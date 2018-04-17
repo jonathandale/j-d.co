@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jonathandale
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://j-d.co
+  * I am jonathandale (https://keybase.io/jonathandale) on keybase.
+  * I have a public key ASAPsrW2kRYZ9XfLFnWoNSJiIiese46za6d4Ll4-evVpHwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01200fb2b5b6911619f577cb1675a83522622227ac7b8eb36ba7782e5e3e7af5691f0a",
+      "host": "keybase.io",
+      "kid": "01200fb2b5b6911619f577cb1675a83522622227ac7b8eb36ba7782e5e3e7af5691f0a",
+      "uid": "3e6e8ed7549719b0225c848d3f2a0719",
+      "username": "jonathandale"
+    },
+    "merkle_root": {
+      "ctime": 1523985825,
+      "hash": "2edfc6baf0cd883eeb15f46b116d3ab518ec69e1bc95d139978c101be1c86bdebcc2191b03f9f0ac158aba4a14bec869a2227d5722381a4ff40c48cc9bae9616",
+      "hash_meta": "3c2299cfa473808d13e4a702b66bf5894d309a0c07aa40dbc8f1bea78c40ab1b",
+      "seqno": 2403192
+    },
+    "service": {
+      "entropy": "i8zF9PGCbkVFxSyuuXR5A3Jt",
+      "hostname": "j-d.co",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.47"
+  },
+  "ctime": 1523985840,
+  "expire_in": 504576000,
+  "prev": "b1dc3aab2efaf40257b09229b5a15d483393e036d25c0dbc123d8c304f6dd892",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgD7K1tpEWGfV3yxZ1qDUiYiInrHuOs2uneC5ePnr1aR8Kp3BheWxvYWTESpcCD8Qgsdw6qy769AJXsJIptaFdSDOT4DbSXA28Ej2MME9t2JLEIGp7caudq4rna7IW6bZDJnt9BQBeG6FofJGhkIz3x2trAgHCo3NpZ8RA7oGMRdFZO+sK3I3tou2XFqHR97vcFv6Xb4z1yhb1TTH0sDRNZ+edt2P3OiLAAuP8WA1cTfbOKz2aXQY4q87yCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIP5gwBieyI7y+JPNsphfbKBFX40XVXRGZSfJ+uK2LVooo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jonathandale
+
+==================================================================
